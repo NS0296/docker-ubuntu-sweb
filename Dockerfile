@@ -41,8 +41,8 @@ RUN wget -O turbovnc.deb https://jaist.dl.sourceforge.net/project/turbovnc/3.0/t
 ####################
 ENV USER root
 ENV PASSWD root
-RUN useradd --home-dir /home/$USER --shell /bin/bash --create-home --user-group --groups adm,sudo $USER
-RUN echo $USER:$USER | /usr/sbin/chpasswd
+#RUN useradd --home-dir /home/$USER --shell /bin/bash --create-home --user-group --groups adm,sudo $USER
+#RUN echo $USER:$USER | /usr/sbin/chpasswd
 RUN mkdir -p /home/$USER/.vnc \
     && echo $PASSWD | /opt/TurboVNC/bin/vncpasswd -f > /home/$USER/.vnc/passwd \
     && chmod 600 /home/$USER/.vnc/passwd \
