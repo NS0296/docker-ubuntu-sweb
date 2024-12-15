@@ -29,7 +29,7 @@ RUN apt-get update -q \
 ####################
 RUN apt-get update \
     && apt-get install -y \
-        supervisor wget gosu git sudo python3-pip \
+        supervisor wget gosu git sudo python3-pip firefox\
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
@@ -39,8 +39,8 @@ RUN wget -O turbovnc.deb https://jaist.dl.sourceforge.net/project/turbovnc/3.0/t
 ####################
 # Add User
 ####################
-ENV USER ubuntu
-ENV PASSWD ubuntu
+ENV USER root
+ENV PASSWD root
 RUN useradd --home-dir /home/$USER --shell /bin/bash --create-home --user-group --groups adm,sudo $USER
 RUN echo $USER:$USER | /usr/sbin/chpasswd
 RUN mkdir -p /home/$USER/.vnc \
