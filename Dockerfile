@@ -19,7 +19,7 @@ RUN apt-get update -q \
 RUN apt-get update -q \
     && apt-get upgrade -y \
     && apt-get install -y \
-        ubuntu-mate-desktop \
+        ubuntu-kde-desktop \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
